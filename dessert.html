@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Restaurant - Dessert</title>
+</head>
+
+<body data-category="Dessert">
+  <header class="topbar">
+    <div class="brand">
+      <img src="images/logo.png" alt="Restaurant official logo" class="logo" />
+      <span class="brand-name">Restaurant ni Rhen</span>
+    </div>
+
+    <nav class="topnav" aria-label="Menu navigation">
+      <a href="maincourse.html">Main Course</a>
+      <a href="drinks.html">Drinks</a>
+      <a class="active" href="dessert.html">Dessert</a>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <h1 class="title">Dessert</h1>
+
+    <section class="grid" aria-label="Dessert items">
+      <article class="card" data-item="Halo-Halo" data-price="95">
+        <img class="product-img" src="images/item1.jpg" alt="Halo-Halo" />
+
+        <div class="details">
+          <h3 class="item-name">Halo-Halo</h3>
+          <p class="item-meta">P 95.00</p>
+          <p class="item-desc">Mixed sweet treats with shaved ice and milk.</p>
+        </div>
+
+        <div class="bottom-row">
+          <div class="qty">
+            <button class="qty-btn" data-minus type="button">−</button>
+            <span class="qty-value" data-value>0</span>
+            <button class="qty-btn" data-plus type="button">+</button>
+          </div>
+          <button class="buy" type="button">Buy</button>
+        </div>
+      </article>
+
+      <article class="card" data-item="Leche Flan" data-price="80">
+        <img class="product-img" src="images/item2.jpg" alt="Leche Flan" />
+
+        <div class="details">
+          <h3 class="item-name">Leche Flan</h3>
+          <p class="item-meta">P 80.00</p>
+          <p class="item-desc">Smooth caramel custard, creamy and sweet.</p>
+        </div>
+
+        <div class="bottom-row">
+          <div class="qty">
+            <button class="qty-btn" data-minus type="button">−</button>
+            <span class="qty-value" data-value>0</span>
+            <button class="qty-btn" data-plus type="button">+</button>
+          </div>
+          <button class="buy" type="button">Buy</button>
+        </div>
+      </article>
+
+      <article class="card" data-item="Ice Cream" data-price="60">
+        <img class="product-img" src="images/item3.jpg" alt="Ice Cream" />
+
+        <div class="details">
+          <h3 class="item-name">Ice Cream</h3>
+          <p class="item-meta">P 60.00</p>
+          <p class="item-desc">Classic scoop, perfect for dessert cravings.</p>
+        </div>
+
+        <div class="bottom-row">
+          <div class="qty">
+            <button class="qty-btn" data-minus type="button">−</button>
+            <span class="qty-value" data-value>0</span>
+            <button class="qty-btn" data-plus type="button">+</button>
+          </div>
+          <button class="buy" type="button">Buy</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="compute">
+      <div class="senior">
+        <label for="ageInput">Age:</label>
+        <input id="ageInput" type="number" min="0" placeholder="Enter age (Senior if 60+)" />
+        <small class="hint">Discount is applied automatically when age is 60 or above.</small>
+      </div>
+
+      <div class="compute-actions">
+        <button class="place" id="placeOrder" type="button">Place Orders</button>
+        <button class="place secondary" type="button" onclick="clearAllOrders()">Clear All Orders</button>
+      </div>
+
+      <div class="totals">
+        <p>Original Total: <strong>P <span id="originalTotal">0.00</span></strong></p>
+        <p>Discount (12%): <strong>P <span id="discountAmount">0.00</span></strong></p>
+        <p class="final">Final Payable: <strong>P <span id="finalTotal">0.00</span></strong></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- RECEIPT MODAL -->
+  <div class="rmodal" id="receiptModal" aria-hidden="true">
+    <div class="rmodal-backdrop" data-close></div>
+
+    <div class="rmodal-card improved" role="dialog" aria-modal="true" aria-labelledby="rTitle">
+      <div class="rmodal-top">
+        <h2 class="rmodal-title" id="rTitle">Receipt</h2>
+        <button class="rmodal-close" type="button" data-close aria-label="Close">×</button>
+      </div>
+
+      <div class="rmodal-body">
+        <div class="rmeta">
+          <div class="rbadge" id="receiptSeniorBadge">Regular</div>
+          <div class="rdate" id="receiptDate">—</div>
+        </div>
+
+        <div class="rlist-head">
+          <span>Item</span>
+          <span>Qty</span>
+          <span>Subtotal</span>
+        </div>
+
+        <div class="rlist" id="receiptList"></div>
+      </div>
+
+      <div class="rsummary">
+        <div class="rrow">
+          <span>Original Total</span>
+          <span>P <span id="receiptOriginal">0.00</span></span>
+        </div>
+        <div class="rrow">
+          <span>Discount (12%)</span>
+          <span>P <span id="receiptDiscount">0.00</span></span>
+        </div>
+        <div class="rrow rrow-final">
+          <span>Final Payable</span>
+          <span>P <span id="receiptFinal">0.00</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
